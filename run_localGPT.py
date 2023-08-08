@@ -49,7 +49,7 @@ def load_model(device_type, model_id, model_basename=None):
         if ".ggml" in model_basename:
             logging.info("Using Llamacpp for GGML quantized models")
             model_path = hf_hub_download(repo_id=model_id, filename=model_basename)
-            max_ctx_size = 2048
+            max_ctx_size = 4096
             kwargs = {
                 "model_path": model_path,
                 "n_ctx": max_ctx_size,
@@ -223,11 +223,24 @@ def main(device_type, show_sources):
     # model_id = "TheBloke/orca_mini_3B-GGML"
     # model_basename = "orca-mini-3b.ggmlv3.q4_0.bin"
 
-    model_id = "TheBloke/Llama-2-7B-Chat-GGML"
-    model_basename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
+    # model_id = "TheBloke/Llama-2-7B-Chat-GGML"
+    # model_basename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
+    model_id = "TheBloke/Llama-2-13B-chat-GGML"
+    model_basename = "llama-2-13b-chat.ggmlv3.q4_0.bin"
+    
+    '''
+    Prompts para ir probando
+    prompt 1: Use las siguientes piezas de contexto para responder la pregunta al final. Si no sabes la respuesta,\
+simplemente diga que no sabe, no intente inventar una respuesta.
+    prompt 2: Eres un abogado en Paraguay, use las siguientes piezas de contexto para responder la pregunta al final. Si no sabes la respuesta,\
+simplemente diga que no sabe, no intente inventar una respuesta.
+    prompt 3: Vives en Paraguay, use las siguientes piezas de contexto para responder la pregunta al final. Si no sabes la respuesta,\
+simplemente diga que no sabe, no intente inventar una respuesta.
+    prompt 4: Como abogado en Paraguay, necesito que respondas en español a todas las preguntas que se presenten a continuación. Por favor, utiliza la información proporcionada para responder de manera precisa y detallada. Si no conoces la respuesta, simplemente indica que no lo sabes, sin intentar inventar una respuesta.
+    prompt 5: Como abogado en Paraguay, necesito que respondas en español a todas las preguntas que se presenten a continuación. Por favor, utiliza la información proporcionada para responder de manera precisa y detallada. Si no conoces la respuesta, simplemente indica que no lo sabes, sin intentar inventar una respuesta. Además, que no proveas una respuesta si la respuesta no está en el contexto.
+    '''
 
-    template = """Use the following pieces of context to answer the question at the end. If you don't know the answer,\
-just say that you don't know, don't try to make up an answer.
+    template = """Como abogado en Paraguay, necesito que respondas en español a todas las preguntas que se presenten a continuación. Por favor, utiliza la información proporcionada para responder de manera precisa y detallada. Si no conoces la respuesta, simplemente indica que no lo sabes, sin intentar inventar una respuesta.
 
 {context}
 
