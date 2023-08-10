@@ -215,7 +215,7 @@ def main(device_type, show_sources):
     # model_id = "TheBloke/WizardLM-7B-uncensored-GPTQ"
     # model_basename = "WizardLM-7B-uncensored-GPTQ-4bit-128g.compat.no-act-order.safetensors"
     
-    model_id = "TheBloke/Llama-2-7b-Chat-GPTQ"
+    model_id = "TheBloke/Llama-2-13B-chat-GPTQ"
     model_basename = "gptq_model-4bit-128g.safetensors"
 
     # for GGML (quantized cpu+gpu+mps) models - check if they support llama.cpp
