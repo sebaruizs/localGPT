@@ -214,6 +214,9 @@ def main(device_type, show_sources):
     # model_basename = "wizardLM-7B-GPTQ-4bit.compat.no-act-order.safetensors"
     # model_id = "TheBloke/WizardLM-7B-uncensored-GPTQ"
     # model_basename = "WizardLM-7B-uncensored-GPTQ-4bit-128g.compat.no-act-order.safetensors"
+    
+    model_id = "TheBloke/Llama-2-7b-Chat-GPTQ"
+    model_basename = "gptq_model-4bit-128g.safetensors"
 
     # for GGML (quantized cpu+gpu+mps) models - check if they support llama.cpp
     # model_id = "TheBloke/wizard-vicuna-13B-GGML"
@@ -225,8 +228,10 @@ def main(device_type, show_sources):
 
     # model_id = "TheBloke/Llama-2-7B-Chat-GGML"
     # model_basename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
-    model_id = "TheBloke/Llama-2-13B-chat-GGML"
-    model_basename = "llama-2-13b-chat.ggmlv3.q4_0.bin"
+    # model_id = "TheBloke/Llama-2-13B-chat-GGML"
+    # model_basename = "llama-2-13b-chat.ggmlv3.q4_0.bin"
+    # model_id = "TheBloke/WizardLM-1.0-Uncensored-Llama2-13B-GGML"
+    # model_basename = "wizardlm-1.0-uncensored-llama2-13b.ggmlv3.q4_0.bin"
     
     '''
     Prompts para ir probando
